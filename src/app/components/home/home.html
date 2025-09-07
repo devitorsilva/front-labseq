@@ -1,0 +1,62 @@
+<div class="container">
+  <h3 style="text-align: center">Try calculate some number!</h3>
+  <pre>
+l(0) = 0  
+l(1) = 1  
+l(2) = 0  
+l(3) = 1  
+l(n) = l(n-4) + l(n-3), para n > 3
+</pre
+  >
+  <mat-divider class="divider"></mat-divider>
+  <form #labseqForm="ngForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field class="form-full-width">
+      <mat-label>Number</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="numberInput"
+        name="numberInput"
+        required
+        min="0"
+        max="999999"
+        maxlength="6"
+        [maxLength]="6"
+        placeholder="Enter a number"
+      />
+      <mat-hint>{{ numberInput?.toString().length || 0 }} / 6</mat-hint>
+      <mat-error>Number must have until 6 digits and be positive.</mat-error>
+    </mat-form-field>
+
+    <div *ngIf="isSubmitting" class="form-button-row">
+      <mat-spinner diameter="40"></mat-spinner>
+    </div>
+
+    <div *ngIf="!isSubmitting" class="form-button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        [disabled]="!labseqForm.valid"
+        matButton="filled"
+        (click)="onSubmit()"
+      >
+        Calculate
+      </button>
+      <button
+        mat-raised-button
+        style="margin-left: 15px"
+        color="secondary"
+        type="button"
+        [disabled]="!labseqForm.valid"
+        (click)="cleanCache()"
+      >
+        Clean Cache
+      </button>
+    </div>
+    <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+    <mat-divider></mat-divider>
+
+    <collapse *ngIf="responseData" class="form-full-width" [responseData]="responseData"></collapse>
+  </form>
+</div>

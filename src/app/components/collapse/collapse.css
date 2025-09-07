@@ -1,0 +1,45 @@
+.container {
+  width: 100vw;
+}
+
+.panel {
+  width: 100%;
+}
+
+.cache-container {
+  font-family: monospace;
+  background-color: #f4f4f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.cache-container h4 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+.cache-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cache-container li {
+  padding: 4px 0;
+  color: #555;
+}
+
+.cache-container li span {
+  display: inline-block;
+  width: 25px;
+  /* Alinha os números */
+  color: #007bff;
+}
+
+.cache-container li strong {
+  color: #28a745;
+}

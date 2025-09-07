@@ -1,0 +1,16 @@
+<mat-accordion class="container">
+  <mat-expansion-panel class="panel" [expanded]="isPanelOpen">
+    <mat-expansion-panel-header (click)="togglePanel()">
+      <mat-panel-description> Results </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>
+      Result: <span>{{ result }}</span>
+    </p>
+    <p>
+      Transaction Time: <span>{{ transactionTime + 'ms' || 0 }}</span>
+    </p>
+    <p *ngIf="error">
+      <b>Error message:</b> <span>{{ error }}</span>
+    </p>
+  </mat-expansion-panel>
+</mat-accordion>
